@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace test.testCore
+namespace ingames.testCore
 {
     public class TestScript : MonoBehaviour
     {

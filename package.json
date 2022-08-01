@@ -1,7 +1,7 @@
 {
   "name": "com.ingames.coreframework",
   "displayName": "Core Framework",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Ingames Core Framework",
   "unity": "2019.4",
   "author": {

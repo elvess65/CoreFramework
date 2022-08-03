@@ -1,3 +1,16 @@
 {
-	"name": "CoreFramework"
+    "name": "CoreFramework",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bded32b0fbdfcb74693d6d6bec4af861"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

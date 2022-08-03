@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using CoreFramework.Network;
 using UnityEngine;
 
 namespace CoreFramework.Examples
@@ -6,10 +6,14 @@ namespace CoreFramework.Examples
     public class GameManager : Singleton<GameManager>
     {
         public SceneLoader SceneLoader { get; private set; }
+        public bool SimulateConnectionError = false;
 
         public void Initialize()
         {
-            StartCoroutine(InitializationDelay());
+            ConnectionController connectionController = new ConnectionController(new ConnectionProviderLocal(SimulateConnectionError));
+            connectionController.OnConnectionSuccess += ConnectionResultSuccess;
+            connectionController.OnConnectionError += ConnectionResultError;
+            connectionController.Connect();
         }
 
         private void Start()
@@ -19,16 +23,14 @@ namespace CoreFramework.Examples
             SceneLoader = new SceneLoader();
         }
 
-        private IEnumerator InitializationDelay()
-        {
-            yield return new WaitForSeconds(1);
-
-            ConnectionResultSuccess();
-        }
-
         private void ConnectionResultSuccess()
         {
             SceneLoader.LoadLevel(SceneLoader.MAIN_SCENE_NAME);
+        }
+
+        private void ConnectionResultError(int errorCode)
+        {
+            Debug.Log($"Error connection. Code {errorCode}");
         }
     }
 }
